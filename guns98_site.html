@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>GUNS98 — Equipamentos & Proteção</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--red:#ff2929;--black:#080808;--panel:#111;--line:#292929;--white:#f5f5f5;--muted:#aaa}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92%);margin:auto}
+header{height:76px;position:sticky;top:0;z-index:20;background:#080808ed;backdrop-filter:blur(12px);border-bottom:1px solid #292929}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{font:900 32px 'Barlow Condensed',sans-serif;letter-spacing:-1px;line-height:.8}
+.logo span{color:var(--red)}.logo small{display:block;font:700 8px Inter,sans-serif;letter-spacing:3px;color:#aaa;margin-top:7px}
+.navlinks{display:flex;gap:26px;font-size:11px;font-weight:800;text-transform:uppercase;color:#ccc}
+.navlinks a:hover{color:var(--red)}
+.search{border:1px solid #393939;border-radius:30px;padding:10px 14px;color:#aaa;font-size:11px;min-width:175px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;background:var(--red);color:white;border:1px solid var(--red);border-radius:4px;font-size:11px;font-weight:800;text-transform:uppercase;transition:.2s;cursor:pointer}
+.btn:hover{background:#d80000;transform:translateY(-2px)}
+.btn.outline{background:transparent;border-color:#777}
+.hero{position:relative;min-height:430px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid #333;background:linear-gradient(90deg,#080808 0%,#080808ee 31%,#08080850 65%,#08080888 100%),url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080808 0%,transparent 28%),radial-gradient(circle at 80% 40%,#ff29291c,transparent 40%);pointer-events:none}
+.hero-content{position:relative;z-index:1;padding:60px 0;max-width:610px}
+.eyebrow{color:var(--red);font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;margin-bottom:13px}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;text-transform:uppercase}
+h1{font-size:clamp(48px,7vw,86px);font-weight:900;line-height:.86;letter-spacing:-1px}
+h1 span{display:block;color:var(--red);font-size:.58em;line-height:1.35;letter-spacing:1px}
+.hero p{max-width:420px;color:#d0d0d0;line-height:1.65;font-size:13px;margin:18px 0 23px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.section{padding:35px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+.section-title{font-size:29px;line-height:1}
+.section-title:before{content:"//";color:var(--red);margin-right:10px}
+.sub{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.7px;margin-top:6px}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.category{min-height:145px;border:1px solid #383838;border-radius:5px;position:relative;overflow:hidden;background:linear-gradient(0deg,#050505 0%,#05050588 55%,#151515 100%);display:flex;align-items:end;padding:14px;font:700 17px 'Barlow Condensed',sans-serif;text-transform:uppercase;transition:.25s}
+.category:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#393939,#111 60%,#080808);opacity:.8}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050505 0%,transparent 80%)}
+.category span{position:relative;z-index:1}
+.category b{margin-left:auto;color:var(--red)}
+.category:hover{border-color:var(--red);transform:translateY(-3px)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.product{border:1px solid #333;border-radius:5px;overflow:hidden;background:#0e0e0e;transition:.25s}
+.product:hover{border-color:#a11;transform:translateY(-3px)}
+.product-art{height:175px;display:grid;place-items:center;background:radial-gradient(ellipse at center,#292929 0%,#121212 48%,#080808 100%);position:relative;overflow:hidden}
+.product-art img{width:100%;height:100%;object-fit:cover;opacity:.88;filter:grayscale(.3)}
+.tag{position:absolute;top:10px;left:10px;background:var(--red);font-size:9px;font-weight:900;padding:4px 7px;border-radius:2px}
+.product-info{padding:13px}
+.product h3{font-size:20px;margin-bottom:6px}
+.product p{font-size:11px;color:#aaa;line-height:1.5;min-height:33px}
+.price{font-size:15px;font-weight:900;margin:10px 0;color:#fff}
+.price small{color:var(--red);font-size:12px}
+.product .btn{width:100%;padding:10px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);margin:6px 0 22px;border:1px solid #5c1616;background:linear-gradient(100deg,#240606,#0c0c0c,#240606)}
+.benefit{padding:22px;display:flex;align-items:center;gap:14px;border-right:1px solid #4a2020}
+.benefit:last-child{border:0}
+.benefit .symbol{font-size:27px;color:var(--red)}
+.benefit strong{display:block;font:700 20px 'Barlow Condensed',sans-serif;text-transform:uppercase}
+.benefit span{font-size:11px;color:#bbb;line-height:1.5}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;border-top:1px solid #252525;border-bottom:1px solid #252525;padding:45px 0}
+.about-art{min-height:260px;border:1px solid #441010;background:radial-gradient(circle at 30% 50%,#501010,#171010 45%,#080808 80%);display:grid;place-items:center;font:900 clamp(38px,6vw,75px) 'Barlow Condensed',sans-serif;color:#ddd;text-shadow:3px 3px #a00;letter-spacing:-2px}
+.about-art span{color:var(--red)}
+.about p{color:#bbb;font-size:13px;line-height:1.8;margin:13px 0 20px}
+.trust{display:flex;gap:18px;flex-wrap:wrap;color:#ddd;font-size:10px;font-weight:800;text-transform:uppercase}
+.trust span:before{content:"✓";color:var(--red);font-size:15px;margin-right:6px}
+.brands{padding:28px 0;border-bottom:1px solid #222}
+.brand-list{display:flex;justify-content:space-around;align-items:center;gap:18px;flex-wrap:wrap;color:#888;font:800 20px 'Barlow Condensed',sans-serif;letter-spacing:1px}
+.cta{padding:35px 0;background:linear-gradient(90deg,#280707,#101010 55%,#171717);border-bottom:1px solid #333}
+.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.cta h2{font-size:35px;line-height:1}.cta h2 span{color:var(--red)}
+.cta p{font-size:12px;color:#bbb;margin-top:8px}
+footer{padding:28px 0 18px}
+.footer-main{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap;color:#aaa;font-size:10px;text-transform:uppercase}
+.payments{font-size:11px;color:#aaa;line-height:2}
+.copy{border-top:1px solid #252525;margin-top:22px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;color:#777;font-size:10px}
+.whatsapp{position:fixed;bottom:18px;right:18px;z-index:30;background:#19bd62;color:#fff;border-radius:40px;padding:13px 18px;font-size:12px;font-weight:800;box-shadow:0 8px 30px #0009}
+.note{font-size:10px;color:#777;margin-top:12px;line-height:1.5}
+@media(max-width:900px){.navlinks{gap:12px}.search{display:none}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.hero{min-height:390px}.benefit{padding:15px}.about{gap:25px}}
+@media(max-width:600px){header{height:auto;padding:14px 0}.nav{flex-wrap:wrap}.navlinks{order:3;width:100%;justify-content:space-between;padding-top:8px;font-size:10px}.logo{font-size:29px}.hero{min-height:430px;background-position:center}.hero-content{padding:45px 0}h1{font-size:55px}.categories{grid-template-columns:repeat(2,1fr)}.category{min-height:125px}.products{gap:9px}.product-art{height:135px}.product-info{padding:10px}.product h3{font-size:17px}.benefits{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid #4a2020}.about{grid-template-columns:1fr}.about-art{min-height:170px}.cta-inner{align-items:flex-start;flex-direction:column}.copy{flex-direction:column}.whatsapp{right:10px;bottom:10px}.section-title{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#inicio">◎ GUNS<span>98</span><small>EQUIPAMENTOS & PROTEÇÃO</small></a>
+    <nav class="navlinks">
+      <a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#sobre">Sobre nós</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn outline" href="#contato">Fale conosco</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Equipamentos & Proteção</div>
+      <h1>GUNS98<br>PREPARE-SE <span>PARA O QUE VEM</span></h1>
+      <p>Equipamentos e acessórios selecionados para quem valoriza qualidade, segurança e confiança. Conheça a GUNS98.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#produtos">Ver produtos →</a>
+        <a class="btn outline" href="COLE_AQUI_O_LINK_DO_LANDBOT" target="_blank" rel="noopener noreferrer">✦ Falar com nossa IA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="categorias">
+  <div class="section-head"><div><h2 class="section-title">Nossas categorias</h2><p class="sub">Encontre o que você precisa</p></div></div>
+  <div class="categories">
+    <a class="category" href="#produtos"><span>Equipamentos</span><b>↗</b></a>
+    <a class="category" href="#produtos"><span>Proteção</span><b>↗</b></a>
+    <a class="category" href="#produtos"><span>Vestuário</span><b>↗</b></a>
+    <a class="category" href="#produtos"><span>Bolsas e mochilas</span><b>↗</b></a>
+    <a class="category" href="#produtos"><span>Acessórios</span><b>↗</b></a>
+    <a class="category" href="#contato"><span>Outros produtos</span><b>↗</b></a>
+  </div>
+</section>
+
+<section class="section container" id="produtos">
+  <div class="section-head">
+    <div><h2 class="section-title">Produtos em destaque</h2><p class="sub">Qualidade e desempenho em cada detalhe</p></div>
+    <a class="btn outline" href="#contato">Consultar produtos →</a>
+  </div>
+  <div class="products">
+    <article class="product">
+      <div class="product-art"><img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=600&q=80" alt="Equipamento de proteção"><span class="tag">DESTAQUE</span></div>
+      <div class="product-info"><h3>Equipamentos de proteção</h3><p>Consulte modelos, características e disponibilidade.</p><div class="price"><small>PREÇO:</small> Sob consulta</div><a class="btn" href="#contato">Consultar</a></div>
+    </article>
+    <article class="product">
+      <div class="product-art"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80" alt="Equipamentos esportivos"><span class="tag">DESTAQUE</span></div>
+      <div class="product-info"><h3>Equipamentos esportivos</h3><p>Opções para diferentes atividades e necessidades.</p><div class="price"><small>PREÇO:</small> Sob consulta</div><a class="btn" href="#contato">Consultar</a></div>
+    </article>
+    <article class="product">
+      <div class="product-art"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" alt="Mochila e bolsa"><span class="tag">DESTAQUE</span></div>
+      <div class="product-info"><h3>Bolsas e mochilas</h3><p>Praticidade para transportar seus itens com organização.</p><div class="price"><small>PREÇO:</small> Sob consulta</div><a class="btn" href="#contato">Consultar</a></div>
+    </article>
+    <article class="product">
+      <div class="product-art"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80" alt="Vestuário e acessórios"><span class="tag">DESTAQUE</span></div>
+      <div class="product-info"><h3>Vestuário e acessórios</h3><p>Confira as opções e os tamanhos disponíveis.</p><div class="price"><small>PREÇO:</small> Sob consulta</div><a class="btn" href="#contato">Consultar</a></div>
+    </article>
+  </div>
+  <p class="note">Imagens ilustrativas. Produtos, valores e disponibilidade devem ser confirmados diretamente com a GUNS98.</p>
+</section>
+
+<section class="container">
+  <div class="benefits">
+    <div class="benefit"><div class="symbol">↗</div><div><strong>Atendimento próximo</strong><span>Suporte para suas dúvidas e compras.</span></div></div>
+    <div class="benefit"><div class="symbol">◇</div><div><strong>Compra consciente</strong><span>Informações claras antes de comprar.</span></div></div>
+    <div class="benefit"><div class="symbol">◎</div><div><strong>Suporte especializado</strong><span>Conte com nossa equipe de atendimento.</span></div></div>
+  </div>
+</section>
+
+<section class="container about" id="sobre">
+  <div class="about-art">GUNS<span>98</span></div>
+  <div>
+    <div class="eyebrow">Sobre a GUNS98</div>
+    <h2 style="font-size:43px;line-height:.95">Mais que uma loja,<br>é um propósito.</h2>
+    <p>A GUNS98 busca oferecer uma experiência de compra simples, com atendimento atencioso e informações claras sobre os produtos. Nosso objetivo é ajudar cada cliente a encontrar o que precisa com confiança.</p>
+    <div class="trust"><span>Atendimento dedicado</span><span>Informação clara</span><span>Compromisso</span></div>
+  </div>
+</section>
+
+<section class="brands container">
+  <div class="section-head"><div><h2 class="section-title">Marcas parceiras</h2><p class="sub">Marcas disponíveis a confirmar com a loja</p></div></div>
+  <div class="brand-list"><span>Taurus </span><span> Glock</span><span> SIG Sauer</span><span> Beretta</span><span> CBC </span></div>
+  <p class="note">Substitua estes nomes pelas marcas com as quais sua loja realmente trabalha.</p>
+</section>
+
+<section class="cta" id="contato">
+  <div class="container cta-inner">
+    <div><h2>Pronto para conhecer<br><span>a GUNS98?</span></h2><p>Fale com nossa equipe e tire suas dúvidas.</p></div>
+    <a class="btn" href="https://landbot.online/v3/H-3536648-98HV0PG8JY6MNUU9/index.html " target="_blank" rel="noopener noreferrer">✦ Falar com nossa IA</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <a class="logo" href="#inicio">◎ GUNS<span>98</span><small>EQUIPAMENTOS & PROTEÇÃO</small></a>
+      <nav class="footer-links"><a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#sobre">Sobre nós</a><a href="#contato">Contato</a></nav>
+      <div class="payments">PAGAMENTO E ENTREGA<br>Consulte as opções disponíveis com nossa equipe.</div>
+    </div>
+    <div class="copy"><span>© <span id="year"></span> GUNS98. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
